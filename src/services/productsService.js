@@ -1,14 +1,20 @@
-const { products } = require('../db');
+import { products } from '../db.js';
 
-function createProduct ({name, price, description}) {
-    const id = products.length + 1;
-    const product = { id, name, price};
-    products.push (product);
-    return product;
-} 
-
-function listProducts () {
-    return products;
+export function addProduct({ id, name, price }) {
+if (!id || !name || !price) {
+    throw new Error('Datos inválidos para crear producto');
 }
 
-module.exports = { createProduct, listProducts };
+const exists = products.find(p => p.id === id);
+if (exists) {
+    throw new Error('El producto ya existe');
+}
+
+const newProduct = { id, name, price };
+products.push(newProduct);
+return newProduct;
+}
+
+export function getProducts() {
+return products;
+}

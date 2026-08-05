@@ -1,16 +1,21 @@
 {
   "name": "tienda-api",
   "version": "1.0.0",
-  "main": "server.js",
+  "description": "API de tienda con Express, Jest, Supertest y deploy en Vercel",
+  "type": "module",
+  "main": "src/app.js",
   "scripts": {
-    "dev": "node server.js",
-    "test": "jest"
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "test": "jest --runInBand"
   },
   "dependencies": {
-    "express": "^4.19.0"
+    "express": "^4.19.2"
   },
   "devDependencies": {
-    "jest": "^29.0.0",
-    "supertest": "^6.3.4"
+    "jest": "^29.7.0",
+    "supertest": "^6.3.4",
+    "nodemon": "^3.1.0"
   }
 }
+

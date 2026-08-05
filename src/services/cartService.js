@@ -1,13 +1,19 @@
-const { cart, products } = require('../db');
+import { cart, products } from '../db.js';
 
-function addToCart({ productId, quantity }) {
+export function addToCart({ productId, quantity }) {
+if (!productId || !quantity) {
+    throw new Error('Datos inválidos para carrito');
+}
+
 const product = products.find(p => p.id === productId);
-if (!product) throw new Error('Producto no encontrado');
+if (!product) {
+    throw new Error('Producto no encontrado');
+}
 
 const existing = cart.find(item => item.productId === productId);
 
 if (existing) {
-    existing.quantity += quantity;  
+    existing.quantity += quantity;
 } else {
     cart.push({ productId, quantity });
 }
@@ -15,11 +21,9 @@ if (existing) {
 return cart;
 }
 
-function getCart() {
+export function getCart() {
 return cart;
 }
-
-module.exports = { addToCart, getCart };
 
     
 
