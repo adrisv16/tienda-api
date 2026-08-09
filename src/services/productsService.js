@@ -1,20 +1,23 @@
 import { products } from '../db.js';
 
-export function addProduct({ id, name, price }) {
-if (!id || !name || !price) {
-    throw new Error('Datos inválidos para crear producto');
+let nextId = 1;
+
+export function addProduct({ name, price }) {
+if (!name || !price) {
+    throw new Error('Datos inválidos para producto');
 }
 
-const exists = products.find(p => p.id === id);
-if (exists) {
-    throw new Error('El producto ya existe');
-}
+const product = {
+    id: nextId++,
+    name,
+    price
+};
 
-const newProduct = { id, name, price };
-products.push(newProduct);
-return newProduct;
+products.push(product);
+return product;
 }
 
 export function getProducts() {
 return products;
 }
+

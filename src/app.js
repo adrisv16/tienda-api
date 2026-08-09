@@ -10,13 +10,6 @@ app.use('/products', productsRouter);
 app.use('/cart', cartRouter);
 app.use('/checkout', checkoutRouter);
 
-app.get('/', (req, res) => {
-res.json({
-    message: 'API Tienda funcionando correctamente 🚀',
-    endpoints: ['/products', '/cart', '/checkout']
-});
-});
-
 export default app;
 
 

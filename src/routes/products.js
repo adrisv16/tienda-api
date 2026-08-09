@@ -1,7 +1,11 @@
 import { Router } from 'express';
-import { addProduct, getProducts } from '../services/productsService.js';
+import { addProduct, getProducts } from '../services/productService.js';
 
 const router = Router();
+
+router.get('/', (req, res) => {
+res.json(getProducts());
+});
 
 router.post('/', (req, res) => {
 try {
@@ -12,9 +16,6 @@ try {
 }
 });
 
-router.get('/', (req, res) => {
-res.json(getProducts());
-});
-
 export default router;
+
 

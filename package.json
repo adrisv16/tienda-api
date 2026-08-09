@@ -1,21 +1,27 @@
 {
   "name": "tienda-api",
   "version": "1.0.0",
-  "description": "API de tienda con Express, Jest, Supertest y deploy en Vercel",
+  "description": "API de tienda con productos, carrito y checkout",
   "type": "module",
   "main": "src/app.js",
   "scripts": {
-    "start": "node src/app.js",
-    "dev": "nodemon src/app.js",
-    "test": "jest --runInBand"
+    "dev": "node server.js",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest --runInBand"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "express": "^4.19.2"
   },
   "devDependencies": {
     "jest": "^29.7.0",
-    "supertest": "^6.3.4",
-    "nodemon": "^3.1.0"
+    "supertest": "^6.3.3"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {}
   }
 }
+
 

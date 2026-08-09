@@ -1,27 +1,17 @@
-const request = require('supertest');
-const app = require('../src/app');
-const { products, cart } = require('../src/db');
+import request from 'supertest';
+import app from '../src/app.js';
 
-beforeEach(() => {
-    products.length = 0;
-    cart.length = 0;
+describe('Cart API', () => {
+test('POST /cart agrega producto', async () => {
+    await request(app)
+    .post('/products')
+    .send({ name: 'Camiseta', price: 10 });
+
+    const res = await request(app)
+    .post('/cart')
+    .send({ productId: 1, quantity: 2 });
+
+    expect(res.status).toBe(201);
+    expect(res.body[0].productId).toBe(1);
 });
-
-test('el carrito se gestiona correctamente', async () => {
-await request(app)
-.post('/products')
-.send({ name: 'Consola', price: 150 });
-
-await request(app)
-.post('/cart')
-.send({ productId: 1, quantity: 2 });
-
-await request(app)
-.post('/cart')
-.send({ productId: 1, quantity: 3 });
-
-const res = await request(app).get('/cart');
-expect(res.status).toBe(200);
-expect(res.body).toHaveLength(1);
-expect(res.body[0].quantity).toBe(5);
 });

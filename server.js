@@ -1,6 +1,8 @@
-const app = require('../app');
-const PORT = process.env.PORT || 3000;
+import app from './src/app.js';
+
+const PORT = 3000;
 
 app.listen(PORT, () => {
-console.log(`Api funcionando en http://localhost:${PORT}`);
+console.log(`Servidor local en puerto ${PORT}`);
 });
+
