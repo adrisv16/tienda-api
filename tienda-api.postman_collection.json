@@ -1,0 +1,87 @@
+{
+  "info": {
+    "name": "Tienda API",
+    "_postman_id": "a1b2c3d4-e5f6-7890-abcd-123456789000",
+    "description": "Colección para probar la API Tienda",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET /products",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://tienda-api-two.vercel.app/products",
+          "protocol": "https",
+          "host": ["tienda-api-two", "vercel", "app"],
+          "path": ["products"]
+        }
+      }
+    },
+    {
+      "name": "POST /products",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Camiseta\",\n  \"price\": 10\n}"
+        },
+        "url": {
+          "raw": "https://tienda-api-two.vercel.app/products",
+          "protocol": "https",
+          "host": ["tienda-api-two", "vercel", "app"],
+          "path": ["products"]
+        }
+      }
+    },
+    {
+      "name": "POST /cart",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"productId\": 1,\n  \"quantity\": 2\n}"
+        },
+        "url": {
+          "raw": "https://tienda-api-two.vercel.app/cart",
+          "protocol": "https",
+          "host": ["tienda-api-two", "vercel", "app"],
+          "path": ["cart"]
+        }
+      }
+    },
+    {
+      "name": "GET /cart",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://tienda-api-two.vercel.app/cart",
+          "protocol": "https",
+          "host": ["tienda-api-two", "vercel", "app"],
+          "path": ["cart"]
+        }
+      }
+    },
+    {
+      "name": "POST /checkout",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "https://tienda-api-two.vercel.app/checkout",
+          "protocol": "https",
+          "host": ["tienda-api-two", "vercel", "app"],
+          "path": ["checkout"]
+        }
+      }
+    }
+  ]
+}
